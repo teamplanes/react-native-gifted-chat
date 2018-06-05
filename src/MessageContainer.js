@@ -104,7 +104,10 @@ export default class MessageContainer extends React.PureComponent {
           {...this.props.listViewProps}
           data={this.props.messages}
           style={styles.listStyle}
-          contentContainerStyle={styles.contentContainerStyle}
+          contentContainerStyle={[
+            styles.contentContainerStyle, 
+            this.props.listViewProps && this.props.listViewProps.contentContainerStyle
+          ]}
           renderItem={this.renderRow}
           renderHeader={this.renderFooter}
           renderFooter={this.renderLoadEarlier}
